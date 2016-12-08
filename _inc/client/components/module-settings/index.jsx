@@ -397,7 +397,7 @@ export let VerificationToolsSettings = React.createClass( {
 
 					<div className="dops-card">
 						<FormLabel>
-							<FormLegend>Google</FormLegend>
+							<FormLegend> __( 'Google' )</FormLegend>
 							<TextInput
 								name={ 'google' }
 								value={ this.props.getOptionValue( 'google' ) }
