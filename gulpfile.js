@@ -447,6 +447,7 @@ gulp.task( 'js:hint', function() {
 		'modules/**/*.js',
 		'!_inc/*.min.js',
 		'!modules/*.min.',
+		'!modules/custom-css/custom-css/js/codemirror.js',
 		'!modules/**/*.min.js'
 	] )
 		.pipe( jshint( '.jshintrc' ) )
