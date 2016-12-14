@@ -397,7 +397,7 @@ export let VerificationToolsSettings = React.createClass( {
 
 					<div className="dops-card">
 						<FormLabel>
-							<FormLegend>{ __( 'Google' ) }</FormLegend>
+							<FormLegend>Google</FormLegend>
 							<TextInput
 								name={ 'google' }
 								value={ this.props.getOptionValue( 'google' ) }
@@ -414,7 +414,7 @@ export let VerificationToolsSettings = React.createClass( {
 
 					<div className="dops-card">
 						<FormLabel>
-							<FormLegend>{ __( 'Bing' ) }</FormLegend>
+							<FormLegend>Bing</FormLegend>
 							<TextInput
 								name={ 'bing' }
 								value={ this.props.getOptionValue( 'bing' ) }
@@ -431,7 +431,7 @@ export let VerificationToolsSettings = React.createClass( {
 
 					<div className="dops-card">
 						<FormLabel>
-							<FormLegend>{ __( 'Pinterest' ) }</FormLegend>
+							<FormLegend>Pinterest</FormLegend>
 							<TextInput
 								name={ 'pinterest' }
 								value={ this.props.getOptionValue( 'pinterest' ) }
@@ -448,7 +448,7 @@ export let VerificationToolsSettings = React.createClass( {
 
 					<div className="dops-card">
 						<FormLabel>
-							<FormLegend>{ __( 'Yandex' ) }</FormLegend>
+							<FormLegend>Yandex</FormLegend>
 							<TextInput
 								name={ 'yandex' }
 								value={ this.props.getOptionValue( 'yandex' ) }
