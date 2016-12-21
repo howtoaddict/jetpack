@@ -397,7 +397,7 @@ class Jetpack_JITM {
 		$upload_url   = admin_url( 'upload.php' );
 		$new_post_url = admin_url( 'post-new.php' );
 
-		$msg = sprintf( __( 'Only videos uploaded in your <a href="%s">media library</a> or while creating a <a href="%s">new post</a> will be fully hosted by WordPress.com.', 'jetpack' ), esc_url( $upload_url ), esc_url( $new_post_url ) );
+		$msg = sprintf( __( 'Only videos uploaded from your <a href="%s">media library</a> or while creating a <a href="%s">new post</a> will be fully hosted by WordPress.com.', 'jetpack' ), esc_url( $upload_url ), esc_url( $new_post_url ) );
 		?>
         <div class="jp-jitm" data-track="videopress-upload-warning" data-stats_url="<?php echo esc_url( $jitm_stats_url ); ?>">
             <!-- <a href="#" data-module="videopress" class="dismiss"><span class="genericon genericon-close"></span></a>-->
