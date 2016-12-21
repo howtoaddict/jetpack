@@ -103,6 +103,7 @@ There are opportunities for developers at all levels to contribute. [Learn more 
 **Enhancements**
 
 * Carousel: add Carousel view for single images. #5469
+* Cli: add `sync` commands to Jetpack's WP Cli commands. #5933
 * Contact Form: allow site owners to set value for each option field via the shortcode. #5351
 * JSON API: allow updating translations from the API. #5552, #5594
 * JSON API: allow alternative theme installation methods via the API. #5704
