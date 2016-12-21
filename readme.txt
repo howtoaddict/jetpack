@@ -91,6 +91,7 @@ There are opportunities for developers at all levels to contribute. [Learn more 
 * Shortcodes: add several new shortcodes. #5838
 * Shorcodes: remove the blip.tv shortcode, as the service is now extinct. #5853
 * Widget Visibility: allow display of empty categories in the dropdowns. #5770
+* Widgets: various layout fixes for multiple widgets in the customizer and in the Widgets admin screen. #5905
 
 **Improved Compatibility:**
 
