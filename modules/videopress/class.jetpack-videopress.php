@@ -49,9 +49,10 @@ class Jetpack_VideoPress {
 
 		add_action( 'admin_print_footer_scripts', array( $this, 'print_in_footer_open_media_add_new' ) );
 		add_action( 'admin_head', array( $this, 'enqueue_admin_styles' ) );
-		add_action( 'admin_notices', array( $this, 'add_media_new_notice' ) );
 
 		add_filter( 'wp_mime_type_icon', array( $this, 'wp_mime_type_icon' ), 10, 3 );
+
+		$this->add_media_new_notice();
 
 		VideoPress_Scheduler::init();
 		VideoPress_XMLRPC::init();
@@ -120,11 +121,10 @@ class Jetpack_VideoPress {
 			return;
 		}
 
-		?>
-		<div id="message" class="notice notice-warning">
-		<p><?php echo sprintf( __( 'You can upload a video via your <a href="%s">media library</a> or while creating a <a href="%s">new post</a>.', 'jetpack' ), admin_url( 'upload.php' ), admin_url( 'post-new.php' ) ); ?></p>
-		</div>
-		<?php
+		$jitm = Jetpack_JITM::init();
+
+		add_action( 'admin_enqueue_scripts', array( $jitm, 'jitm_enqueue_files' ) );
+		add_action( 'admin_notices', array( $jitm, 'videopress_media_upload_warning_msg' ) );
 	}
 
 	/**
