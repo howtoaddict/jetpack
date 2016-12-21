@@ -82,6 +82,7 @@ There are opportunities for developers at all levels to contribute. [Learn more 
 
 **Bug Fixes**
 
+* Carousel: fix infinite loop on posts that have attachments that were returning null. #5867
 * Custom Content Types: avoid PHP warnings in the Restaurant Menu Post type. #5777
 * General: fix a bug that would display the wrong connected user for up to 24 hours after they disconnect. #5835
 * JSON API: allow creating a child category from WordPress.com. #5856
