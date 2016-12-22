@@ -4769,20 +4769,26 @@ p {
 
 		$verified = $this->verify_xml_rpc_signature();
 
-		if ( false === $verified ) {
-			return new WP_Error( 'rest_invalid_signature', 'The request is not signed correctly.', array( 'status' => 400 ) );
-		}
-
 		if ( is_wp_error( $verified ) ) {
 			return $verified;
 		}
 
-		if ( isset( $verified['type'] ) && isset( $verified['user_id'] ) && 'user' === $verified['type']  ) {
-			wp_set_current_user( $verified['user_id'] );
-			return true; // Authentication successful.
+		if (
+			false === $verified ||
+			! isset( $verified['type'] ) ||
+			'user' !== $verified['type'] ||
+			empty( $verified['user_id'] )
+		) {
+			return new WP_Error(
+				'rest_invalid_signature',
+				'The request is not signed correctly.',
+				array( 'status' => 400 )
+			);
 		}
 
-		return null; // Nothing to do for this authentication method.
+		// Authentication successful.
+		wp_set_current_user( $verified['user_id'] );
+		return true;
 	}
 
 	function add_nonce( $timestamp, $nonce ) {
