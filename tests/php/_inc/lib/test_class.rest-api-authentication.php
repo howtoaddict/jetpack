@@ -74,7 +74,7 @@ class WP_Test_Jetpack_REST_API_Authentication extends WP_Test_Jetpack_REST_Testc
 		$_GET['signature'] = 'invalid';
 		$this->request = new WP_REST_Request( 'GET', '/jetpack/v4/module/protect' );
 		$response = $this->server->dispatch( $this->request );
-		$this->assertErrorResponse( 'token_malformed', $response, 400 );
+		$this->assertErrorResponse( 'rest_invalid_signature', $response, 400 );
 		$this->assertEquals( 0, get_current_user_id() );
 	}
 
@@ -87,7 +87,7 @@ class WP_Test_Jetpack_REST_API_Authentication extends WP_Test_Jetpack_REST_Testc
 		$_GET['token'] = 'invalid';
 		$this->request = new WP_REST_Request( 'GET', '/jetpack/v4/module/protect' );
 		$response = $this->server->dispatch( $this->request );
-		$this->assertErrorResponse( 'token_malformed', $response, 400 );
+		$this->assertErrorResponse( 'rest_invalid_signature', $response, 400 );
 		$this->assertEquals( 0, get_current_user_id() );
 	}
 
@@ -101,7 +101,7 @@ class WP_Test_Jetpack_REST_API_Authentication extends WP_Test_Jetpack_REST_Testc
 		$_GET['signature'] = 'invalid';
 		$this->request = new WP_REST_Request( 'GET', '/jetpack/v4/module/protect' );
 		$response = $this->server->dispatch( $this->request );
-		$this->assertErrorResponse( 'token_malformed', $response, 400 );
+		$this->assertErrorResponse( 'rest_invalid_signature', $response, 400 );
 		$this->assertEquals( 0, get_current_user_id() );
 	}
 
@@ -140,7 +140,7 @@ class WP_Test_Jetpack_REST_API_Authentication extends WP_Test_Jetpack_REST_Testc
 		$_GET['signature'] = 'abc';
 		$this->request = new WP_REST_Request( 'GET', '/jetpack/v4/module/protect' );
 		$response = $this->server->dispatch( $this->request );
-		$this->assertErrorResponse( 'token_malformed', $response, 400 );
+		$this->assertErrorResponse( 'rest_invalid_signature', $response, 400 );
 		$this->assertEquals( 0, get_current_user_id() );
 	}
 
@@ -190,7 +190,7 @@ class WP_Test_Jetpack_REST_API_Authentication extends WP_Test_Jetpack_REST_Testc
 		$this->request->set_header( 'Content-Type', 'application/json' );
 		$this->request->set_body( '{"modules":[]}' );
 		$response = $this->server->dispatch( $this->request );
-		$this->assertErrorResponse( 'token_malformed', $response, 400 );
+		$this->assertErrorResponse( 'rest_invalid_signature', $response, 400 );
 		$this->assertEquals( 0, get_current_user_id() );
 	}
 
