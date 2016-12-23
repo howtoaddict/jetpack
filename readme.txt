@@ -121,6 +121,7 @@ There are opportunities for developers at all levels to contribute. [Learn more 
 = 4.4.2 =
 
 * Release date: December 6, 2016
+* Release post: http://wp.me/p1moTy-3JR
 
 This release improves Jetpack compatibility with WordPress 4.7.
 
