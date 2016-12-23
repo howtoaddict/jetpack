@@ -90,7 +90,7 @@ There are opportunities for developers at all levels to contribute. [Learn more 
 * Infinite Scroll: remove deprecated function call to prevent notices when using Infinite Scroll in Customizer. #5934
 * JSON API: allow creating a child category from WordPress.com. #5856
 * Sharing: ReCaptcha error fix for the Email sharing button. #5548
-* Shortcodes: add several new shortcodes. #5838
+* Shortcodes: add several new shortcodes. #5838, #5917
 * Shorcodes: remove the blip.tv shortcode, as the service is now extinct. #5853
 * Widget Visibility: allow display of empty categories in the dropdowns. #5770
 * Widgets: various layout fixes for multiple widgets in the customizer and in the Widgets admin screen. #5905
