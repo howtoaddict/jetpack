@@ -108,34 +108,63 @@ export const Composing = moduleSettingsForm(
 			let markdown = this.props.getModule( 'markdown' );
 			let atd = this.props.getModule( 'after-the-deadline' );
 
-			return (
-				<SettingsCard header={ __( 'Composing', { context: 'Settings header' } ) } { ...this.props }>
-					<FormFieldset>
-						<ModuleToggle slug={ 'markdown' }
-									  compact
-									  activated={ this.props.getOptionValue( 'markdown' ) }
-									  toggling={ this.props.isSavingAnyOption() }
-									  toggleModule={ this.toggleModule }>
-							<span className="jp-form-toggle-explanation">
-								{ markdown.description }
-							</span>
-						</ModuleToggle>
-					</FormFieldset>
-					<FormFieldset>
-						<ModuleToggle slug={ 'after-the-deadline' }
-									  compact
-									  activated={ this.props.getOptionValue( 'after-the-deadline' ) }
-									  toggling={ this.props.isSavingAnyOption() }
-									  toggleModule={ this.toggleModule }>
-							<span className="jp-form-toggle-explanation">
-								{ atd.description }
-							</span>
-						</ModuleToggle>
-					</FormFieldset>
+			// Getting text data about modules and seeing if it's being searched for
+			let list = [ markdown, atd ].map( function( m ) {
+				if ( ! this.props.searchTerm ) {
+					return true;
+				}
+
+				let text = [
+					m.module,
+					m.name,
+					m.description,
+					m.learn_more_button,
+					m.long_description,
+					m.search_terms,
+					m.additional_search_queries,
+					m.short_description,
+					m.feature.toString()
+				].toString();
+
+				return text.toLowerCase().indexOf( this.props.searchTerm ) > -1;
+			}, this);
+
+			let markdownSettings = (
+				<FormFieldset>
+					<ModuleToggle slug={ 'markdown' }
+								  compact
+								  activated={ this.props.getOptionValue( 'markdown' ) }
+								  toggling={ this.props.isSavingAnyOption() }
+								  toggleModule={ this.toggleModule }>
+						<span className="jp-form-toggle-explanation">
+							{ markdown.description }
+						</span>
+					</ModuleToggle>
+				</FormFieldset>
+			);
+
+			let atdSettings = (
+				<FormFieldset>
+					<ModuleToggle slug={ 'after-the-deadline' }
+								  compact
+								  activated={ this.props.getOptionValue( 'after-the-deadline' ) }
+								  toggling={ this.props.isSavingAnyOption() }
+								  toggleModule={ this.toggleModule }>
+						<span className="jp-form-toggle-explanation">
+							{ atd.description }
+						</span>
+					</ModuleToggle>
 					{ this.props.getOptionValue( 'after-the-deadline' )
 					  ? this.getAtdSettings()
 					  : ''
 					}
+				</FormFieldset>
+			);
+
+			return (
+				<SettingsCard header={ __( 'Composing', { context: 'Settings header' } ) } { ...this.props }>
+					{ list[0] ? markdownSettings : '' }
+					{ list[1] ? atdSettings : '' }
 				</SettingsCard>
 			);
 		}

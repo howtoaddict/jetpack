@@ -16,7 +16,7 @@ export const Writing = React.createClass( {
 	displayName: 'WritingSettings',
 
 	render() {
-		if ( '/writing' !== this.props.route.path ) {
+		if ( ! this.props.searchTerm && ! this.props.active ) {
 			return <span />;
 		}
 
@@ -26,6 +26,7 @@ export const Writing = React.createClass( {
 				<Composing
 					settings={ this.props.getSettings() }
 					getModule={ this.props.getModule }
+					searchTerm={ this.props.searchTerm }
 				/>
 			</div>
 		);
